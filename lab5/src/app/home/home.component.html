@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    @for(product of products;track product.id ){
+
+
+      <div class="card pro" style="width: 18rem;">
+        <div class="image">
+         <img [src]="product.images[0]"  class="card-img-top" alt="...">
+       </div>
+         <div class="card-body">
+           <h5 class="card-title">{{product.title}}</h5>
+           <ul class="card-text">
+             <li>{{product.price}}</li>
+             <li>{{product.description}}</li>
+         </ul>
+           @if(product.stock>0)
+           {
+             <span class="badge bg-success">InStock</span>
+           }
+           @else{
+             <span class="badge bg-danger">OutStock</span>
+
+           }
+         </div>
+         <button  (click)="showDetails(product.id)" class="btn btn-warning">View</button>
+         <button  (click)="addToCart(product)" class="btn btn-info">add to cart</button>
+
+
+       </div>
+
+
+}
+
+</div>
+</div>

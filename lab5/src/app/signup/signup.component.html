@@ -1,0 +1,119 @@
+<form [formGroup]="signup" > 
+    <div class="mb-3">
+        <label for="NameInputEmail1" class="form-label">Name</label>
+        <input 
+        type="text"
+         name="Name"
+         formControlName="Name"
+         class="form-control"
+         id="NameInputEmail1" 
+        
+         aria-describedby="NameHelp">
+         @if(signup.controls['Name'] && signup.controls['Name'].touched)
+         {
+            @if(signup.controls['Name'].errors?.['required'])
+            {
+                <div id="NameHelp" class="form-text bg-danger">Name is required</div>
+
+            }
+            @if(signup.controls['Name'].errors?.['minlength'])
+            {
+                <div id="NameHelp" class="form-text bg-danger">Name must be more than 3</div>
+
+            }
+            
+         }
+         <label for="exampleusernameInput" class="form-label">username</label>
+      <input 
+      type="text"
+       name="username"
+       class="form-control"
+       formControlName="username"
+       id="exampleusernameInput" 
+       aria-describedby="usernameHelp">  
+       @if(signup.controls['username'] && signup.controls['username'].touched)
+       {
+          @if(signup.controls['username'].errors?.['required'])
+          {
+              <div id="NameHelp" class="form-text bg-danger">Name is required</div>
+
+          }
+          @if(signup.controls['username'].errors?.['minlength'])
+          {
+              <div id="NameHelp" class="form-text bg-danger">username must be more than 3</div>
+
+          }
+          
+       }
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input 
+      type="email"
+       name="email"
+      formControlName="email"
+       class="form-control"
+       id="exampleInputEmail1" 
+       aria-describedby="emailHelp">
+       @if(signup.controls['email'] && signup.controls['email'].touched)
+       {
+          @if(signup.controls['email'].errors?.['required'])
+          {
+              <div id="emailHelp" class="form-text bg-danger">email is required</div>
+
+          }
+          @if(signup.controls['email'].errors?.['pattern'])
+          {
+              <div id="emailHelp" class="form-text bg-danger">email is invalid</div>
+
+          }
+          
+       }
+         
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input 
+      type="password"
+      name="password"
+       class="form-control"
+       formControlName="password"
+        id="exampleInputPassword1">
+        @if(signup.controls['password'] && signup.controls['password'].touched)
+        {
+           @if(signup.controls['password'].errors?.['required'])
+           {
+               <div id="passwordHelp" class="form-text bg-danger">password is required</div>
+ 
+           }
+           @if(signup.controls['password'].errors?.['minlength'])
+           {
+               <div id="password" class="form-text bg-danger">contains at least one 
+                lowercase , one uppercase , at least one digit 
+                and special character [ example : *%$# ] ] </div>
+ 
+           }
+           
+        }
+        <label for="exampleInputconfirmPassword1" class="form-label">Confirm Password</label>
+      <input 
+      type="password"
+      name="confirmpassword"
+      formControlName="confirmpassword"
+     
+       class="form-control"
+       
+        id="exampleInputconfirmPassword1">
+        @if(signup.controls['confirmpassword'] && signup.controls['confirmpassword'].touched)
+        {
+           @if(signup.controls['password'].errors?.['required'])
+           {
+               <div id="passwordHelp" class="form-text bg-danger">confirmpassword is required</div>
+ 
+           }
+        
+           
+        }
+       
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
